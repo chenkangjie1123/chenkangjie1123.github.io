@@ -107,13 +107,13 @@
         To quantitatively analyze co-adaptation in 3D Gaussian Splatting, we define a <strong>Co-Adaptation Score (CA)</strong> for each target viewpoint. The key idea is that if a set of Gaussians are overly dependent on each other, then randomly removing part of them during rendering will lead to unstable outputs. Specifically, we randomly drop 50% of the Gaussians and render the target view using only the remaining ones. We repeat this process multiple times and measure the variance across the rendered results.
       </p>
       <figure style="margin: 0">
-        <img src="CA_calculate.pdf" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
+        <img src="CA_calculate.png" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
         <figcaption>
         <strong>Illustration of Co-Adaptation Score (CA) Computation.</strong> Higher CA scores indicate more inconsistent renderings, suggesting stronger co-adaptation effects. Lower CA scores reflect more stable and generalizable representations.
         </figcaption>
       </figure>
       
-      <figure>
+<!--       <figure>
         <div class="video-wrapper">
           <video class="video-compare" style="aspect-ratio: 1920/1080" loop muted>
             <source src="./assets/kplanes-wg-trevi.webm" type="video/webm">
@@ -136,8 +136,9 @@
             <span>WildGaussians<div class="video-fps">FPS: 10.6</div></span>
           </span>
         </div>
+      </figure> -->
     </section>
-    <section>
+<!--     <section>
       <h2>Appearance interpolation</h2>
       <p class="justify">
       We show that our approach is able to smoothly interpolate between different appearances of the same scene.
@@ -224,21 +225,19 @@
           <span class="video-label"><span>RGB</span><span>Depth</span></span>
         </div>
       </figure>
-    </section>
+    </section> -->
     <section>
       <h2>Concurrent works</h2>
       <p class="justify">
-      There are several concurrent works that also aim to extend 3DGS to handle in-the-wild data:
+      There are two another concurrent works that also use dropout to boost sparse-view 3DGS:
       <ul>
-        <li><a href="https://arxiv.org/pdf/2406.10373v1">Wild-GS: Real-Time Novel View Synthesis from Unconstrained Photo Collections</li></a>
-        <li><a href="https://arxiv.org/pdf/2403.15704">Gaussian in the Wild: 3D Gaussian Splatting for Unconstrained Image Collections</a></li>
-        <li><a href="https://arxiv.org/pdf/2406.20055">SpotlessSplats: Ignoring Distractors in 3D Gaussian Splatting</a></li>
-        <li><a href="https://arxiv.org/pdf/2403.10427">SWAG: Splatting in the Wild images with Appearance-conditioned Gaussians</a></li>
-        <li><a href="https://arxiv.org/pdf/2406.02407">WE-GS: An In-the-wild Efficient 3D Gaussian Representation for Unconstrained Photo Collections</a></li>
+        <li><a href="https://arxiv.org/abs/2504.00773">DropGaussian: Structural Regularization for Sparse-view Gaussian Splatting</li></a>
+        <li><a href="https://arxiv.org/abs/2504.09491">DropoutGS: Dropping Out Gaussians for Better Sparse-view Rendering</a></li>
       </ul>
+      However, they attribute the effectiveness of dropout to empirical factors—such as reducing overfitting through fewer active splats (DropoutGS), or enhancing gradient flow to distant Gaussians (DropGaussian).
       </p>
     </section>
-    <section>
+<!--     <section>
       <h2>Acknowledgements</h2>
       <p class="justify">
         We would like to thank Weining Ren for his help with the NeRF On-the-go dataset and code and Tobias Fischer and Xi Wang for fruitful discussions.
@@ -258,7 +257,7 @@
   journal={NeurIPS},
   year={2024}
 }</code></pre>
-    </section>
+    </section> -->
     <script src="./scripts.js"></script>
   </body>
 </html>
