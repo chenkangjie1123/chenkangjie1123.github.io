@@ -93,32 +93,26 @@
       <h2>Abstract</h2>
       <p>
 3D Gaussian Splatting (3DGS) has demonstrated impressive performance in novel view synthesis under dense-view settings. However, in sparse-view scenarios, despite the realistic renderings in training views, 3DGS occasionally manifests appearance artifacts in novel views. This paper investigates the appearance artifacts in sparse-view 3DGS and uncovers a core limitation of current approaches: the optimized Gaussians are overly-entangled with one another to aggressively fit the training views, which leads to a neglect of the real appearance distribution of the underlying scene and results in appearance artifacts in novel views. The analysis is based on a proposed metric, termed Co-Adaptation Score (CA), which quantifies the entanglement among Gaussians, i.e., co-adaptation, by computing the pixel-wise variance across multiple renderings of the same viewpoint, with different random subsets of Gaussians. The analysis reveals that the degree of co- adaptation is naturally alleviated as the number of training views increases. Based on the analysis, we propose two lightweight strategies to explicitly mitigate the co- adaptation in sparse-view 3DGS: (1) random gaussian dropout; (2) multiplicative noise injection to the opacity. Both strategies are designed to be plug-and-play, and their effectiveness is validated across various methods and benchmarks. We hope that our insights into the co-adaptation effect will inspire the community to achieve a more comprehensive understanding of sparse-view 3DGS.
-<figure style="margin: 0">
-      <img src="teaser.svg" alt="Co-Adaptation of 3DGS overview" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
-      <figcaption>
-      <strong>Visualization of 3DGS behaviors under different levels of co-adaptation.</strong> Thin gray arrows indicate training views, bold arrows indicate a novel view. Green arrow denotes correct color prediction, while red indicates color errors. (a) Simulates a 3DGS model trained with dense views, where Gaussian ellipsoids contribute evenly to pixel color across views, resulting in accurate rendering from the novel view. (b)(c)(d) Simulate various cases of 3DGS trained under sparse-view settings. (b) and (c) show that co-adaptation in the training views — where Gaussians contribute unequally to pixel colors — results in thin and thick artifacts under novel views. (d) shows a highly co-adapted case where multiple Gaussians with distinct colors collectively overfit a single grayscale pixel in the training view, resulting in severe wrong color artifacts under the novel view.
-      </figcaption>
-    </figure>
+      </p>
+      <figure style="margin: 0">
+        <img src="teaser.svg" alt="Co-Adaptation of 3DGS overview" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
+        <figcaption>
+        <strong>Visualization of 3DGS behaviors under different levels of co-adaptation.</strong> Thin gray arrows indicate training views, bold arrows indicate a novel view. Green arrow denotes correct color prediction, while red indicates color errors. (a) Simulates a 3DGS model trained with dense views, where Gaussian ellipsoids contribute evenly to pixel color across views, resulting in accurate rendering from the novel view. (b)(c)(d) Simulate various cases of 3DGS trained under sparse-view settings. (b) and (c) show that co-adaptation in the training views — where Gaussians contribute unequally to pixel colors — results in thin and thick artifacts under novel views. (d) shows a highly co-adapted case where multiple Gaussians with distinct colors collectively overfit a single grayscale pixel in the training view, resulting in severe wrong color artifacts under the novel view.
+        </figcaption>
+      </figure>
     </section>
     <section>
-      <h2>Appearance modeling</h2>
+      <h2>Quantifying Co-Adaptation</h2>
       <p>
-      In order to enable training on images with varying appearance (images captured at different time of the day), we extend 3DGS with appearance modeling module which achieves the same inference speed as 3DGS.
-      In these visualizations, we interpolate between different training image embeddings to demonstrate how each method handles appearance changes.
-      Note, we report FPS computed on NVIDIA 4090 at FullHD resolution (1920x1080).
+        To quantitatively analyze co-adaptation in 3D Gaussian Splatting, we define a <strong>Co-Adaptation Score (CA)</strong> for each target viewpoint. The key idea is that if a set of Gaussians are overly dependent on each other, then randomly removing part of them during rendering will lead to unstable outputs. Specifically, we randomly drop 50% of the Gaussians and render the target view using only the remaining ones. We repeat this process multiple times and measure the variance across the rendered results.
       </p>
-      <figure>
-        <div class="video-wrapper">
-          <video class="video-compare" style="aspect-ratio: 1920/1080" loop muted>
-            <source src="./assets/3dgs-wg-brandenburg.webm" type="video/webm">
-            <source src="./assets/3dgs-wg-brandenburg.mp4" type="video/mp4">
-          </video>
-          <span class="video-label video-label-with-fps">
-            <span>3DGS<div class="video-fps">FPS: 7.7</div></span>
-            <span>WildGaussians<div class="video-fps">FPS: 9.6</div></span>
-          </span>
-        </div>
+      <figure style="margin: 0">
+        <img src="CA_calculate.svg" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
+        <figcaption>
+        <strong>Illustration of Co-Adaptation Score (CA) Computation.</strong> Higher CA scores indicate more inconsistent renderings, suggesting stronger co-adaptation effects. Lower CA scores reflect more stable and generalizable representations.
+        </figcaption>
       </figure>
+      
       <figure>
         <div class="video-wrapper">
           <video class="video-compare" style="aspect-ratio: 1920/1080" loop muted>
