@@ -107,7 +107,7 @@
         To quantitatively analyze co-adaptation in 3D Gaussian Splatting, we define a <strong>Co-Adaptation Score (CA)</strong> for each target viewpoint. The key idea is that if a set of Gaussians are overly dependent on each other, then randomly removing part of them during rendering will lead to unstable outputs. Specifically, we randomly drop 50% of the Gaussians and render the target view using only the remaining ones. We repeat this process multiple times and measure the variance across the rendered results.
       </p>
       <figure style="margin: 0">
-        <img src="CA_calculate.png" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
+        <img src="CA_calculate.pdf" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
         <figcaption>
         <strong>Illustration of Co-Adaptation Score (CA) Computation.</strong> Higher CA scores indicate more inconsistent renderings, suggesting stronger co-adaptation effects. Lower CA scores reflect more stable and generalizable representations.
         </figcaption>
