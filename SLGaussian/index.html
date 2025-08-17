@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SLGaussian: Fast Language Gaussian Splatting in Sparse Views">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SLGaussian: Fast Language Gaussian Splatting in Sparse Views</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SLGaussian: Fast Language Gaussian Splatting in Sparse Views</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/chenkangjie1123">Kangjie Chen</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/DaiBingquan">Bingquan Dai</a><sup>1*;</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?&user=ngEXyLkAAAAJ">Minghan Qin</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github.com/EastbeanZhang">Dongbin Zhang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=LYX4AOEAAAAJ">Peihao Li</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=3SIkncUAAAAJ">Yingshuang Zou</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.sigs.tsinghua.edu.cn/whq_en/main.htm">Haoqian Wang</a><sup>1&#134;</sup>
+            </span>
+
+            <span class="author-block">
+              (* indicates equal contribution, &#134; means corresponding author)
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tsinghua Shenzhen International Graduate School, Tsinghua University</span>
+          </div>
+          
+<!--           <div class="is-size-5 publication-authors">
+            <span class="author-block"><b>Accepted to ECCV 2024 </b></font></span>
+          </div> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b>Accepted to ACM MM 2025 </b></font></span>
+          </div>
+          
+           <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2412.08331"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.08331"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                 
+                  <span>arXiv</span>
+                </a>
+              </span>
+             
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/chenkangjie1123/SLGaussian"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            With just two RGB views, our method infers 3D semantic fields in under 30 seconds without per-scene optimization. On LERF and 3D-OVS datasets (image resolution 416 × 576), query time is 0.011 seconds/query, outperforming existing methods in both speed and IoU metrics.
+          </p>
+        </div>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/iIWhK9_2kgA?si=UcbBTCqy2yGf0hhd" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            3D semantic field learning is crucial for applications like autonomous navigation, AR/VR, and robotics, where accurate comprehension of 3D scenes from limited viewpoints is essential. Existing methods struggle under sparse view conditions, relying on inefficient per-scene multi-view optimizations, which are impractical for many real-world tasks. To address this, we propose SLGaussian, a feed-forward method for constructing 3D semantic fields from sparse viewpoints, allowing direct inference of 3DGS-based scenes. By ensuring consistent SAM segmentations through video tracking and using low-dimensional indexing for high-dimensional CLIP features, SLGaussian efficiently embeds language information in 3D space, offering a robust solution for accurate 3D scene understanding under sparse view conditions. In experiments on two-view sparse 3D object querying and segmentation in the LERF and 3D-OVS datasets, SLGaussian outperforms existing methods in chosen IoU, Localization Accuracy, and mIoU. Moreover, our model achieves scene inference in under 30 seconds and open-vocabulary querying in just 0.011 seconds per query.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        
+        <div class="hero-body">
+          <img src="./static/images/teaser.png"/>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            With just two RGB views, our method infers 3D semantic fields in under 30 seconds without per-scene optimization. On LERF and 3D-OVS datasets (image resolution 416 × 576), query time is 0.011 seconds/query, outperforming existing methods in both speed and IoU metrics.
+          </p>
+        </div>
+        
+        <p>3D semantic field video results on test scenes from the RealEstate10K dataset, using only two sparse-view RGB images as input.</p>
+    
+        <div class="content has-text-centered">
+          <div class="columns is-centered">
+
+          <!-- Visual Effects. -->
+          <div class="column">
+          <video id="replay-video"
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="100%"  autoplay loop>
+            <source src="./static/videos/1.mp4"
+                    type="video/mp4">
+          </video></div>
+          <div class="column">
+          <video id="replay-video"
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="100%"  autoplay loop>
+            <source src="./static/videos/6.mp4"
+                    type="video/mp4">
+          </video></div>
+          </div>
+      </div>
+        <div class="content has-text-centered">
+           <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+          <video id="replay-video"
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="100%"  autoplay loop>
+            <source src="./static/videos/2.mp4"
+                    type="video/mp4">
+          </video></div>
+             <div class="column">
+          <video id="replay-video"
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="100%"  autoplay loop>
+            <source src="./static/videos/4.mp4"
+                    type="video/mp4">
+          </video></div></div>
+        </div>
+        
+
+        <p>Using our model pre-trained on the RealEstate10K dataset, we conducted inference on the LERF dataset scenes, using only two sparse-view RGB images — the first and last frames — as input.</p>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="100%"  autoplay loop>
+            <source src="./static/videos/11.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="100%"  autoplay loop>
+            <source src="./static/videos/22.mp4"
+                    type="video/mp4">
+          </video>
+    </div>
+          <div class="content has-text-centered">
+          <video id="replay-video"
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="100%"  autoplay loop>
+            <source src="./static/videos/33.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <h6 class="title is-4">Visual comparison on LERF and 3D-OVS datasets.</h6>
+        <div class="hero-body">
+          <img src="./static/images/comparison.png"/>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Qualitative comparisons of open-vocabulary 3D object localization on the LERF and 3D-OVS datasets. The top row displays scenes from the LERF dataset, while the bottom row shows scenes from the 3D-OVS dataset. Red points indicate the model predictions, and black dashed bounding boxes denote the annotations.
+          </p>
+        </div>
+</div>
+        
+        
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{chen2024slgaussian,
+  title={Slgaussian: Fast language gaussian splatting in sparse views},
+  author={Chen, Kangjie and Dai, BingQuan and Qin, Minghan and Zhang, Dongbin and Li, Peihao and Zou, Yingshuang and Wang, Haoqian},
+  journal={arXiv preprint arXiv:2412.08331},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The souce code is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>,
+              we thank the authors for sharing the templates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
