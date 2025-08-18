@@ -119,6 +119,18 @@
         <strong>(2) Illustration of Co-Adaptation Score (CA) Computation.</strong> Higher CA scores indicate more inconsistent renderings, suggesting stronger co-adaptation effects. Lower CA scores reflect more stable and generalizable representations.
         </figcaption>
       </figure>
+
+      <h2>Empirical Observations</h2>
+      <p>
+        <strong>A. Increased training views reduce co-adaptation.</strong> (See Figure 3)
+      </p>
+      <p>
+        <strong>B. Co-adaptation temporarily weakens during early training.</strong> (See Figure 4)
+      </p>
+      <p>
+        <strong>C. Co-adaptation is lower at input views than novel views.</strong> (See Figure 4)
+      </p>
+      <p>Inspired by these empirical findings, we investigate whether suppressing co-adaptation in 3DGS can enhance rendering quality for novel views.</p>
       
       <figure style="margin: 0">
         <img src="fig1.png" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
@@ -133,7 +145,7 @@
         <strong>(4) Training dynamics of co-adaptation strength (CA) and reconstruction quality (PSNR) across different LLFF scenes.</strong> CA score (left axis) and PSNR (right axis) over training iterations for DNGaussian and Binocular3DGS on the “flower” and “orchids” scenes of the LLFF dataset.
         </figcaption>
       </figure>
-      <h2>Empirical Observations</h2>
+<!--       <h2>Empirical Observations</h2>
       <p>
         <strong>A. Increased training views reduce co-adaptation.</strong> (See Figure 3)
       </p>
@@ -143,7 +155,7 @@
       <p>
         <strong>C. Co-adaptation is lower at input views than novel views.</strong> (See Figure 4)
       </p>
-      <p>Inspired by these empirical findings, we investigate whether suppressing co-adaptation in 3DGS can enhance rendering quality for novel views.</p>
+      <p>Inspired by these empirical findings, we investigate whether suppressing co-adaptation in 3DGS can enhance rendering quality for novel views.</p> -->
       
 <!--       <figure>
         <div class="video-wrapper">
