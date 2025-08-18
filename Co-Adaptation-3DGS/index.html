@@ -143,7 +143,7 @@
       <p>
         <strong>C. Co-adaptation is lower at input views than novel views.</strong> (See Figure 4)
       </p>
-
+      <p>Inspired by these empirical findings, we investigate whether suppressing co-adaptation in 3DGS can enhance rendering quality for novel views.</p>
       
 <!--       <figure>
         <div class="video-wrapper">
@@ -170,6 +170,27 @@
         </div>
       </figure> -->
     </section>
+    <section>
+      <h2>Alleviating Co-Adaptation</h2>
+      <p>
+        We explore two regularization strategies to mitigate excessive co-adaptation in 3D Gaussian Splatting:
+      </p>
+      <p><strong>A. Dropout Regularization.</strong></p>
+      <p><strong>A. Opacity Noise Injection.</strong></p>
+
+      <h2>Alleviating Co-Adaptation</h2>
+      <p>
+        We explore two regularization strategies to mitigate excessive co-adaptation in 3D Gaussian Splatting:
+      </p>
+      
+      <p><strong>A. Dropout Regularization.</strong> Randomly drops subsets of Gaussians during training to prevent over co-adaptation on specific points, improving generalization across novel views.</p>
+      
+      <p><strong>B. Opacity Noise Injection.</strong> Perturbs the opacity parameters with noise to reduce deterministic fitting, effectively suppressing spurious co-adaptation and enhancing robustness.</p>
+
+      
+    </section>
+
+    
 <!--     <section>
       <h2>Appearance interpolation</h2>
       <p class="justify">
