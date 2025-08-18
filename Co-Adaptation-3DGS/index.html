@@ -104,7 +104,7 @@
       <figure style="margin: 0">
         <img src="teaser.png" alt="Co-Adaptation of 3DGS overview" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
         <figcaption>
-        <strong>Visualization of 3DGS behaviors under different levels of co-adaptation.</strong> Thin gray arrows indicate training views, bold arrows indicate a novel view. Green arrow denotes correct color prediction, while red indicates color errors. (a) Simulates a 3DGS model trained with dense views, where Gaussian ellipsoids contribute evenly to pixel color across views, resulting in accurate rendering from the novel view. (b)(c)(d) Simulate various cases of 3DGS trained under sparse-view settings. (b) and (c) show that co-adaptation in the training views — where Gaussians contribute unequally to pixel colors — results in thin and thick artifacts under novel views. (d) shows a highly co-adapted case where multiple Gaussians with distinct colors collectively overfit a single grayscale pixel in the training view, resulting in severe wrong color artifacts under the novel view.
+        <strong>(1) Visualization of 3DGS behaviors under different levels of co-adaptation.</strong> Thin gray arrows indicate training views, bold arrows indicate a novel view. Green arrow denotes correct color prediction, while red indicates color errors. (a) Simulates a 3DGS model trained with dense views, where Gaussian ellipsoids contribute evenly to pixel color across views, resulting in accurate rendering from the novel view. (b)(c)(d) Simulate various cases of 3DGS trained under sparse-view settings. (b) and (c) show that co-adaptation in the training views — where Gaussians contribute unequally to pixel colors — results in thin and thick artifacts under novel views. (d) shows a highly co-adapted case where multiple Gaussians with distinct colors collectively overfit a single grayscale pixel in the training view, resulting in severe wrong color artifacts under the novel view.
         </figcaption>
       </figure>
     </section>
@@ -116,21 +116,21 @@
       <figure style="margin: 0">
         <img src="CA_calculate.png" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
         <figcaption>
-        <strong>Illustration of Co-Adaptation Score (CA) Computation.</strong> Higher CA scores indicate more inconsistent renderings, suggesting stronger co-adaptation effects. Lower CA scores reflect more stable and generalizable representations.
+        <strong>(2) Illustration of Co-Adaptation Score (CA) Computation.</strong> Higher CA scores indicate more inconsistent renderings, suggesting stronger co-adaptation effects. Lower CA scores reflect more stable and generalizable representations.
         </figcaption>
       </figure>
       
       <figure style="margin: 0">
         <img src="fig1.png" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
         <figcaption>
-        <strong>Comparison of co-adaptation strength (CA), GS count and reconstruction quality un- der varying numbers of training views.</strong> (a-b) CA measured as pixel-wise variance for DNGaussian and Binocular3DGS on three target view types: extrapolation (far), interpolation (near), and training. (c) Gaussian count (left axis, in thousands) and average PSNR (right axis, in dB) for both methods. All plots are shown as functions of input view counts, based on the LLFF “flower” scene.
+        <strong>(3) Comparison of co-adaptation strength (CA), GS count and reconstruction quality un- der varying numbers of training views.</strong> (a-b) CA measured as pixel-wise variance for DNGaussian and Binocular3DGS on three target view types: extrapolation (far), interpolation (near), and training. (c) Gaussian count (left axis, in thousands) and average PSNR (right axis, in dB) for both methods. All plots are shown as functions of input view counts, based on the LLFF “flower” scene.
         </figcaption>
       </figure>
 
       <figure style="margin: 0">
         <img src="fig2.png" alt="Quantifying Co-Adaptation of 3DGS" style="width: 100%; margin: 1em auto 0.3em auto; display: block;" />
         <figcaption>
-        <strong>Training dynamics of co-adaptation strength (CA) and reconstruction quality (PSNR) across different LLFF scenes.</strong> CA score (left axis) and PSNR (right axis) over training iterations for DNGaussian and Binocular3DGS on the “flower” and “orchids” scenes of the LLFF dataset.
+        <strong>(4) Training dynamics of co-adaptation strength (CA) and reconstruction quality (PSNR) across different LLFF scenes.</strong> CA score (left axis) and PSNR (right axis) over training iterations for DNGaussian and Binocular3DGS on the “flower” and “orchids” scenes of the LLFF dataset.
         </figcaption>
       </figure>
 
