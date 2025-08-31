@@ -8,6 +8,14 @@
   font-family: 'Lato', sans-serif;
 }
 
+.figure_div{
+  display: flex;
+}
+
+.video_compare{
+  padding: 5px;
+}
+
 a {
   color: #1772d0;
 }
