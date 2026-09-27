@@ -1,33 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">VGGT-Diff</title>
-  <desc id="desc">A V-to-D monogram representing visual geometry flowing into diffusion.</desc>
+  <desc id="desc">Visual geometry particles flowing into an elegant diffusion D.</desc>
   <defs>
-    <linearGradient id="bg" x1="7" y1="10" x2="58" y2="55" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0c6888"/>
-      <stop offset="0.45" stop-color="#1689a8"/>
-      <stop offset="0.72" stop-color="#715190"/>
-      <stop offset="1" stop-color="#a22a79"/>
+    <linearGradient id="bg" x1="7" y1="7" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#063d5d"/>
+      <stop offset=".48" stop-color="#187f9d"/>
+      <stop offset="1" stop-color="#9a286f"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(36 31) rotate(90) scale(25)" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffffff" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#2f1740" flood-opacity="0.32"/>
+    <linearGradient id="flow" x1="9" y1="32" x2="31" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7de1ee" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".94"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="1.4" stdDeviation="1.2" flood-color="#241129" flood-opacity=".32"/>
     </filter>
   </defs>
 
-  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#bg)"/>
-  <rect x="3" y="3" width="58" height="58" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="2"/>
-  <circle cx="36" cy="31" r="25" fill="url(#glow)"/>
+  <rect width="64" height="64" rx="11" fill="url(#bg)"/>
+  <path d="M8 32c7.5-7 13.2-6.8 21.5-.8" fill="none" stroke="url(#flow)" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="10" cy="32.1" r="2.2" fill="#7de1ee" opacity=".62"/>
+  <circle cx="17.2" cy="28.1" r="1.65" fill="#b8f2f6" opacity=".78"/>
+  <circle cx="24.1" cy="28.8" r="1.25" fill="#fff" opacity=".9"/>
 
-  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
-    <path d="M12 18 23 46 31.5 24" stroke-width="6.2"/>
-    <path d="M34 17v30h7.5C51.2 47 56 41.7 56 32S51.2 17 41.5 17H34Z" stroke-width="5.5"/>
-  </g>
-
-  <path d="M27.5 32h10" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" opacity="0.82"/>
-  <circle cx="29" cy="32" r="2.1" fill="#ffffff"/>
-  <circle cx="34" cy="32" r="1.55" fill="#ffffff" opacity="0.9"/>
-  <circle cx="38" cy="32" r="1.1" fill="#ffffff" opacity="0.72"/>
+  <text x="39" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="43" font-style="italic" font-weight="700" fill="#fff" filter="url(#soft-shadow)">D</text>
+  <path d="M27.5 42.6c5 2 9.8 2 14.4-.2" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".28"/>
 </svg>
