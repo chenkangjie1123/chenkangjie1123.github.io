@@ -109,7 +109,7 @@
       <div class="controls">
         <div class="status" aria-live="polite">
           <strong id="statusText">The 4K master loads only when requested.</strong>
-          <progress id="progress" max="177823818" value="0"></progress>
+          <progress id="progress" max="216686581" value="0"></progress>
         </div>
         <div class="actions">
           <button id="loadButton" type="button">Load &amp; Watch in 4K</button>
@@ -117,10 +117,10 @@
           <a class="button" href="/VGGT-Diff/">Back to project page</a>
         </div>
       </div>
-      <p class="note"><b>No transcoding is applied.</b> The two hosted pieces are reassembled in your browser into the original 177,823,818-byte MP4, preserving the 4K master exactly.</p>
+      <p class="note"><b>No transcoding is applied.</b> The three hosted pieces are reassembled in your browser into the original 216,686,581-byte MP4, preserving the 4K master exactly.</p>
     </main>
     <script>
-      const totalBytes = 177823818;
+      const totalBytes = 216686581;
       const partUrls = [
         "/VGGT-Diff/assets/fullres-demo/4k/VGGT-Diff_promo_demo_fullres_21K_4K.mp4.part-00",
         "/VGGT-Diff/assets/fullres-demo/4k/VGGT-Diff_promo_demo_fullres_21K_4K.mp4.part-01",
@@ -133,6 +133,7 @@
       const statusText = document.getElementById("statusText");
       let masterBlob;
       let objectUrl;
+      const downloadRequested = new URLSearchParams(window.location.search).get("download") === "1";
 
       async function fetchPart(url, startOffset) {
         const response = await fetch(url);
@@ -183,13 +184,24 @@
         player.play().catch(() => {});
       });
 
-      downloadButton.addEventListener("click", async () => {
+      async function downloadMaster() {
         await prepareMaster();
         const link = document.createElement("a");
         link.href = objectUrl;
         link.download = "VGGT-Diff_promo_demo_fullres_21K_4K.mp4";
+        document.body.appendChild(link);
         link.click();
-      });
+        link.remove();
+        statusText.textContent = "Complete 4K master ready · download started";
+      }
+
+      downloadButton.addEventListener("click", downloadMaster);
+
+      if (downloadRequested) {
+        loadButton.hidden = true;
+        statusText.textContent = "Preparing the complete 4K master for download…";
+        downloadMaster().catch(() => {});
+      }
 
       window.addEventListener("beforeunload", () => {
         if (objectUrl) URL.revokeObjectURL(objectUrl);
