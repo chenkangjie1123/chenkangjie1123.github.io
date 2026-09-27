@@ -1,0 +1,17 @@
+{
+  "name": "VGGT-Diff: Visual Geometry Meets Diffusion",
+  "short_name": "VGGT-Diff",
+  "description": "A geometry-routed multi-view diffusion model for sparse-view novel view synthesis.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1d607c",
+  "icons": [
+    {
+      "src": "/VGGT-Diff/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
