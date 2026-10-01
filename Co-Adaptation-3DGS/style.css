@@ -433,12 +433,17 @@ header .conference {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: .1em;
-  text-transform: uppercase;
   color: #4772bb;
 }
 
-.authors { gap: 10px 19px; }
-.authors > * { margin-bottom: 5px; }
+.authors {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+.authors > .author { grid-column: span 3; max-width: none; margin-bottom: 5px; }
+.authors > .author:nth-of-type(5) { grid-column: 3 / span 3; }
+.authors > br { display: none; }
 .authors .author-name { line-height: 1.35; }
 .authors .author-affiliation { font-size: .83rem; line-height: 1.4; color: #68768a; }
 .links { gap: 8px; margin: 23px auto 29px; }
@@ -517,8 +522,8 @@ pre { border-radius: 14px; border: 1px solid #e3eaf5; }
   header { padding-top: 42px; }
   h1 .title-main { flex-direction: column; gap: 16px; text-align: center; }
   h1 .title-main > img { width: 62px; height: 62px; }
-  .authors { gap: 10px 8px; }
-  .authors > * { flex: 1 1 130px; max-width: 45%; }
+  .authors { display: flex; gap: 10px 8px; }
+  .authors > .author, .authors > .author:nth-of-type(5) { flex: 1 1 130px; max-width: 45%; }
   .links { gap: 5px; }
   .button { font-size: .88rem; }
   section { margin: 42px 0; }
