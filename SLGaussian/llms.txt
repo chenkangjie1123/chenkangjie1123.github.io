@@ -1,0 +1,10 @@
+# SLGaussian: Fast Language Gaussian Splatting in Sparse Views
+
+> Builds 3D semantic fields from two RGB views without per-scene optimization and supports fast open-vocabulary 3D object querying and segmentation.
+
+## Paper and project
+
+- [Research summary](https://chenkangjie1123.github.io/SLGaussian/index.md): Author-written abstract, authors, venue, and source links.
+- [Project page](https://chenkangjie1123.github.io/SLGaussian/): Original figures, results, and BibTeX.
+- [arXiv paper](https://arxiv.org/abs/2412.08331): Full research paper.
+- [Code](https://github.com/chenkangjie1123/SLGaussian): Project repository.

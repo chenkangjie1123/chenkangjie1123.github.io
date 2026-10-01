@@ -1,0 +1,12 @@
+# Kangjie Chen research projects
+
+> Research project pages on 3D Gaussian splatting, sparse-view novel-view synthesis, and language-aware 3D scene understanding.
+
+## Project pages
+
+- [Co-Adaptation of 3DGS](https://chenkangjie1123.github.io/Co-Adaptation-3DGS/index.md): Quantifying and alleviating co-adaptation in sparse-view 3D Gaussian Splatting; NeurIPS 2025.
+- [SLGaussian](https://chenkangjie1123.github.io/SLGaussian/index.md): Fast language Gaussian Splatting in sparse views; ACM Multimedia 2025.
+
+## Optional
+
+- [VGGT-Diff](https://chenkangjie1123.github.io/VGGT-Diff/): Another project page on this site.

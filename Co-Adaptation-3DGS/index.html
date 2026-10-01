@@ -8,7 +8,99 @@
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Co-Adaptation of 3DGS: Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting</title>
-    <meta name="description" content="Co-Adaptation of 3DGS: Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting paper. Official web with qualitative comparisons, links to the source code, and additional materials.">
+    <!-- discovery metadata start -->
+    <link rel="canonical" href="https://chenkangjie1123.github.io/Co-Adaptation-3DGS/">
+    <link rel="alternate" type="text/markdown" href="./index.md">
+    <link rel="describedby" type="text/plain" href="./llms.txt">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="citation_title" content="Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting">
+    <meta name="citation_author" content="Kangjie Chen">
+    <meta name="citation_author" content="Yingji Zhong">
+    <meta name="citation_author" content="Zhihao Li">
+    <meta name="citation_author" content="Jiaqi Lin">
+    <meta name="citation_author" content="Youyu Chen">
+    <meta name="citation_author" content="Minghan Qin">
+    <meta name="citation_author" content="Haoqian Wang">
+    <meta name="citation_publication_date" content="2025/08/18">
+    <meta name="citation_conference_title" content="NeurIPS 2025">
+    <meta name="citation_doi" content="10.48550/arXiv.2508.12720">
+    <meta name="citation_abstract_html_url" content="https://chenkangjie1123.github.io/Co-Adaptation-3DGS/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting">
+    <meta property="og:description" content="Studies color artifacts caused by co-adapted Gaussians in sparse-view 3DGS, introduces a Co-Adaptation Score, and evaluates Gaussian dropout and opacity noise to improve novel-view rendering.">
+    <meta property="og:url" content="https://chenkangjie1123.github.io/Co-Adaptation-3DGS/">
+    <meta property="og:image" content="https://chenkangjie1123.github.io/Co-Adaptation-3DGS/teaser.png">
+    <meta property="og:image:alt" content="Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting">
+    <meta name="twitter:description" content="Studies color artifacts caused by co-adapted Gaussians in sparse-view 3DGS, introduces a Co-Adaptation Score, and evaluates Gaussian dropout and opacity noise to improve novel-view rendering.">
+    <meta name="twitter:image" content="https://chenkangjie1123.github.io/Co-Adaptation-3DGS/teaser.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting",
+      "abstract": "3D Gaussian Splatting (3DGS) has demonstrated impressive performance in novel view synthesis under dense-view settings. However, in sparse-view scenarios, despite the realistic renderings in training views, 3DGS occasionally manifests appearance artifacts in novel views. This paper investigates the appearance artifacts in sparse-view 3DGS and uncovers a core limitation of current approaches: the optimized Gaussians are overly-entangled with one another to aggressively fit the training views, which leads to a neglect of the real appearance distribution of the underlying scene and results in appearance artifacts in novel views. The analysis is based on a proposed metric, termed Co-Adaptation Score (CA), which quantifies the entanglement among Gaussians, i.e., co-adaptation, by computing the pixel-wise variance across multiple renderings of the same viewpoint, with different random subsets of Gaussians. The analysis reveals that the degree of co-adaptation is naturally alleviated as the number of training views increases. Based on the analysis, we propose two lightweight strategies to explicitly mitigate the co-adaptation in sparse-view 3DGS: (1) random gaussian dropout; (2) multiplicative noise injection to the opacity. Both strategies are designed to be plug-and-play, and their effectiveness is validated across various methods and benchmarks. We hope that our insights into the co-adaptation effect will inspire the community to achieve a more comprehensive understanding of sparse-view 3DGS.",
+      "description": "Studies color artifacts caused by co-adapted Gaussians in sparse-view 3DGS, introduces a Co-Adaptation Score, and evaluates Gaussian dropout and opacity noise to improve novel-view rendering.",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Kangjie Chen"
+        },
+        {
+          "@type": "Person",
+          "name": "Yingji Zhong"
+        },
+        {
+          "@type": "Person",
+          "name": "Zhihao Li"
+        },
+        {
+          "@type": "Person",
+          "name": "Jiaqi Lin"
+        },
+        {
+          "@type": "Person",
+          "name": "Youyu Chen"
+        },
+        {
+          "@type": "Person",
+          "name": "Minghan Qin"
+        },
+        {
+          "@type": "Person",
+          "name": "Haoqian Wang"
+        }
+      ],
+      "datePublished": "2025-08-18",
+      "inLanguage": "en",
+      "url": "https://chenkangjie1123.github.io/Co-Adaptation-3DGS/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://chenkangjie1123.github.io/Co-Adaptation-3DGS/"
+      },
+      "sameAs": [
+        "https://arxiv.org/abs/2508.12720",
+        "https://doi.org/10.48550/arXiv.2508.12720"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "arXiv",
+        "value": "2508.12720"
+      },
+      "image": "https://chenkangjie1123.github.io/Co-Adaptation-3DGS/teaser.png",
+      "keywords": [
+        "sparse-view 3D Gaussian Splatting",
+        "novel view synthesis",
+        "co-adaptation",
+        "Gaussian dropout",
+        "opacity noise injection"
+      ],
+      "isAccessibleForFree": true
+    }
+    </script>
+    <!-- discovery metadata end -->
+    <meta name="description" content="Studies color artifacts caused by co-adapted Gaussians in sparse-view 3DGS, introduces a Co-Adaptation Score, and evaluates Gaussian dropout and opacity noise to improve novel-view rendering.">
     <meta name="keywords" content="Co-Adaptation of 3DGS: Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting,3dgs,nerf,official,code" />
     <meta name="author" content="kangjie chen" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
