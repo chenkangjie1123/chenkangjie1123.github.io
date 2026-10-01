@@ -198,12 +198,6 @@ a { color: #2869a7; }
 .section pre { border: 1px solid #e1e9f4; border-radius: 14px; background: #f8fafd; overflow-x: auto; }
 .publication-video { margin-top: 25px; border-radius: 17px !important; box-shadow: 0 10px 30px rgba(30, 48, 78, .1); background: #17243c; }
 
-.concept-visual { margin: 24px 0 27px; border-radius: 17px; overflow: hidden; border: 1px solid #d9e5f4; background: #0d1932; box-shadow: 0 12px 30px rgba(25, 47, 77, .1); }
-.concept-visual video { display: block; width: 100%; aspect-ratio: 16/9; }
-.concept-visual figcaption { display: flex; justify-content: flex-end; gap: 17px; padding: 8px 17px 10px; background: #fff; font-size: .8rem; font-weight: 700; }
-.concept-visual a { text-decoration: none; }
-.concept-visual a:hover { text-decoration: underline; }
-
 .section .content.has-text-centered .columns { align-items: stretch; gap: 16px; margin: 15px 0 20px; }
 .section .content.has-text-centered .columns > .column { padding: 0; min-width: 0; }
 .result-video-frame { position: relative; isolation: isolate; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 14px; background: #15263f; box-shadow: 0 7px 22px rgba(28, 52, 87, .08); }

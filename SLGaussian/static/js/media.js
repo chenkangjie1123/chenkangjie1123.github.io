@@ -27,13 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
     frame.className = 'result-video-frame';
     video.before(frame);
     frame.appendChild(video);
-    video.addEventListener('loadeddata', () => {
+    let hasLoadedFrame = false;
+    const markReady = () => {
+      hasLoadedFrame = true;
       frame.classList.add('is-ready');
+      frame.classList.remove('is-error');
+      frame.querySelector('.result-video-error')?.remove();
       if (frame.dataset.visible === 'true' && !reducedMotion.matches && !document.hidden) {
         video.play().catch(() => {});
       }
-    });
-    video.addEventListener('error', () => {
+    };
+    const showError = () => {
+      if (!video.querySelector('source').hasAttribute('src')) return;
+      if (hasLoadedFrame || video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) return;
       if (frame.classList.contains('is-error')) return;
       frame.classList.add('is-error');
       const error = document.createElement('div');
@@ -45,9 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
         frame.classList.remove('is-error');
         video.load();
       });
-    });
+    };
+    video.addEventListener('loadeddata', markReady);
+    video.addEventListener('playing', markReady);
+    video.addEventListener('error', showError);
     video.querySelector('source').addEventListener('error', () => {
-      video.dispatchEvent(new Event('error'));
+      window.setTimeout(() => {
+        if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) showError();
+      }, 100);
     });
     observer.observe(frame);
   });
