@@ -137,8 +137,14 @@
             With just two RGB views, our method infers 3D semantic fields in under 30 seconds without per-scene optimization. On LERF and 3D-OVS datasets (image resolution 416 × 576), query time is 0.011 seconds/query, outperforming existing methods in both speed and IoU metrics.
           </p>
         </div>
+        <figure class="concept-visual">
+          <video autoplay loop muted playsinline preload="metadata" poster="./static/images/slgaussian-explained.png" aria-label="Animation showing two RGB views becoming a queryable language Gaussian scene">
+            <source src="./static/images/slgaussian-explained.mp4" type="video/mp4">
+          </video>
+          <figcaption><a href="./static/images/slgaussian-explained.gif" download>GIF</a><a href="./static/images/slgaussian-explained.mp4" download>MP4</a></figcaption>
+        </figure>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/iIWhK9_2kgA?si=UcbBTCqy2yGf0hhd" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+          <iframe src="https://www.youtube.com/embed/iIWhK9_2kgA?si=UcbBTCqy2yGf0hhd" title="SLGaussian paper video" loading="lazy" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
           </iframe>
         </div>
       </div>
@@ -172,7 +178,7 @@
       <div class="column is-full-width">
         
         <div class="hero-body">
-          <img src="./static/images/teaser.png"/>
+          <img src="./static/images/teaser.png" alt="SLGaussian method overview" loading="lazy" decoding="async"/>
         </div>
         <div class="content has-text-justified">
           <p>
@@ -187,23 +193,23 @@
 
           <!-- Visual Effects. -->
           <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/1.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/1.mp4"
                     type="video/mp4">
           </video></div>
           <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/6.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/6.mp4"
                     type="video/mp4">
           </video></div>
           </div>
@@ -213,23 +219,23 @@
 
       <!-- Visual Effects. -->
       <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/2.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/2.mp4"
                     type="video/mp4">
           </video></div>
              <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/4.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/4.mp4"
                     type="video/mp4">
           </video></div></div>
         </div>
@@ -238,41 +244,41 @@
         <p>Using our model pre-trained on the RealEstate10K dataset, we conducted inference on the LERF dataset scenes, using only two sparse-view RGB images — the first and last frames — as input.</p>
 
         <div class="content has-text-centered">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/11.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/11.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="content has-text-centered">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/22.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/22.mp4"
                     type="video/mp4">
           </video>
     </div>
           <div class="content has-text-centered">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/33.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/33.mp4"
                     type="video/mp4">
           </video>
         </div>
         <h6 class="title is-4">Visual comparison on LERF and 3D-OVS datasets.</h6>
         <div class="hero-body">
-          <img src="./static/images/comparison.png"/>
+          <img src="./static/images/comparison.png" alt="Visual comparison on LERF and 3D-OVS datasets" loading="lazy" decoding="async"/>
         </div>
         <div class="content has-text-justified">
           <p>
@@ -320,6 +326,8 @@
     </div>
   </div>
 </footer>
+
+<script src="./static/js/media.js"></script>
 
 </body>
 </html>

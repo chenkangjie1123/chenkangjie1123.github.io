@@ -1,172 +1,151 @@
-function playMergeVid(vid, videoMerge) {
-  // Written by Dor Verbin, October 2021
-  // This is based on: http://thenewcode.com/364/Interactive-Before-and-After-Video-Comparison-in-HTML5-Canvas
-  // With additional modifications based on: https://jsfiddle.net/7sk5k4gp/13/
-  // With additional modifications by Jonas Kulhanek 2024
-  const leftcaption = [...videoMerge.parentElement.querySelectorAll('.video-label > :first-child')];
-  const rightcaption = [...videoMerge.parentElement.querySelectorAll('.video-label > :last-child')];
-  const borderThickness = 4;
-  var position = 0.5;
-  var elementWidth = 0;
-  var vidWidth = vid.videoWidth/2;
-  var vidHeight = vid.videoHeight;
-  var bcr = videoMerge.getBoundingClientRect();
-  var mergeContext = videoMerge.getContext("2d");
+// Paired comparison videos load as they approach the viewport.
+function setupComparison(video, observer) {
+  const wrapper = video.closest('.video-wrapper');
+  const sources = [...video.querySelectorAll('source[data-src]')];
+  let canvas;
+  let frameRequest = 0;
+  let position = .5;
+  let started = false;
 
-  function updateCaptionMasks() {
-    if (leftcaption) {
-      for (var i = 0; i < leftcaption.length; i++) {
-        leftcaption[i].style.clipPath = `xywh(0 0 ${bcr.width*position-borderThickness/2}px 100%)`;
-      }
+  function updateLabels() {
+    const first = wrapper.querySelector('.video-label > :first-child');
+    const last = wrapper.querySelector('.video-label > :last-child');
+    const bounds = wrapper.getBoundingClientRect();
+    const split = bounds.left + bounds.width * position;
+    if (first) first.style.clipPath = `inset(0 ${Math.max(0, first.getBoundingClientRect().right - split)}px 0 0)`;
+    if (last) last.style.clipPath = `inset(0 0 0 ${Math.max(0, split - last.getBoundingClientRect().left)}px)`;
+  }
+
+  function render() {
+    if (!canvas || video.readyState < 2) return;
+    const width = canvas.width;
+    const height = canvas.height;
+    const sourceWidth = video.videoWidth / 2;
+    const context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, sourceWidth, video.videoHeight, 0, 0, width, height);
+    const split = Math.round(width * position);
+    if (split < width) {
+      context.drawImage(video, sourceWidth + sourceWidth * position, 0,
+        sourceWidth * (1 - position), video.videoHeight, split, 0, width - split, height);
     }
-    if (rightcaption) {
-      for (var i = 0; i < rightcaption.length; i++) {
-        rightcaption[i].style.clipPath = `inset(0 0 0 calc(100% - ${bcr.width * (1-position)-borderThickness/2}px))`;
-      }
+    context.fillStyle = 'rgba(12, 24, 43, .32)';
+    context.fillRect(split - 3, 0, 6, height);
+    context.fillStyle = '#fff';
+    context.beginPath();
+    context.arc(split, height * .5, Math.max(16, height * .055), 0, Math.PI * 2);
+    context.fill();
+    context.fillStyle = '#294674';
+    context.font = `bold ${Math.max(15, height * .046)}px sans-serif`;
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText('↔', split, height * .5);
+  }
+
+  function animate() {
+    render();
+    frameRequest = requestAnimationFrame(animate);
+  }
+
+  function showError() {
+    wrapper.classList.add('is-error');
+    let error = wrapper.querySelector('.comparison-error');
+    if (!error) {
+      error = document.createElement('div');
+      error.className = 'comparison-error';
+      error.innerHTML = '<span>Video could not load.</span><button type="button">Retry</button>';
+      wrapper.appendChild(error);
+      error.querySelector('button').addEventListener('click', () => {
+        error.remove();
+        wrapper.classList.remove('is-error');
+        video.load();
+      });
     }
   }
 
-  updateCaptionMasks();
-
-  if (vid.readyState > 3) {
-    vid.play();
-
-    function trackLocation(e) {
-      // Normalize to [0, 1]
-      bcr = videoMerge.getBoundingClientRect();
-      position = ((e.pageX - bcr.x) / bcr.width);
-      updateCaptionMasks();
+  function ready() {
+    if (canvas || !video.videoWidth || !video.videoHeight) return;
+    canvas = document.createElement('canvas');
+    canvas.className = 'comparison-canvas';
+    canvas.width = Math.round(video.videoWidth / 2);
+    canvas.height = video.videoHeight;
+    canvas.setAttribute('role', 'slider');
+    canvas.setAttribute('tabindex', '0');
+    canvas.setAttribute('aria-label', 'Slide to compare the two video results');
+    canvas.setAttribute('aria-valuemin', '0');
+    canvas.setAttribute('aria-valuemax', '100');
+    canvas.setAttribute('aria-valuenow', '50');
+    video.after(canvas);
+    wrapper.classList.add('is-ready');
+    updateLabels();
+    new ResizeObserver(updateLabels).observe(wrapper);
+    render();
+    if (wrapper._comparisonVisible && !document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.play().catch(() => {});
     }
-    function trackLocationTouch(e) {
-      // Normalize to [0, 1]
-      bcr = videoMerge.getBoundingClientRect();
-      position = ((e.touches[0].pageX - bcr.x) / bcr.width);
-      updateCaptionMasks();
+
+    function setPosition(value) {
+      position = Math.min(1, Math.max(0, value));
+      canvas.setAttribute('aria-valuenow', String(Math.round(position * 100)));
+      updateLabels();
+      render();
     }
-
-      videoMerge.addEventListener("mousemove",  trackLocation, false);
-      videoMerge.addEventListener("touchstart", trackLocationTouch, false);
-      videoMerge.addEventListener("touchmove",  trackLocationTouch, false);
-
-      function clamp(number, min, max) {
-        return Math.min(Math.max(number, min), max);
-      };
-
-      function drawLoop() {
-          mergeContext.drawImage(vid, 0, 0, vidWidth, vidHeight, 0, 0, vidWidth, vidHeight);
-          var colStart = clamp(vidWidth * position, 0.0, vidWidth);
-          var colWidth = clamp(vidWidth - (vidWidth * position), 0.0, vidWidth);
-          mergeContext.drawImage(vid, colStart+vidWidth, 0, colWidth, vidHeight, colStart, 0, colWidth, vidHeight);
-          requestAnimationFrame(drawLoop);
-
-
-          var arrowLength = 0.09 * vidHeight;
-          var arrowheadWidth = 0.025 * vidHeight;
-          var arrowheadLength = 0.04 * vidHeight;
-          var arrowPosY = vidHeight / 10;
-          var arrowWidth = 0.007 * vidHeight;
-          var currX = vidWidth * position;
-
-          // Draw circle
-          mergeContext.arc(currX, arrowPosY, arrowLength*0.7, 0, Math.PI * 2, false);
-          mergeContext.fillStyle = "#FFD79340";
-          mergeContext.fill()
-          //mergeContext.strokeStyle = "#444444";
-          //mergeContext.stroke()
-
-          // Draw border
-          mergeContext.beginPath();
-          mergeContext.moveTo(vidWidth*position, 0);
-          mergeContext.lineTo(vidWidth*position, vidHeight);
-          mergeContext.closePath()
-          mergeContext.strokeStyle = "#444444";
-          mergeContext.lineWidth = 5;
-          mergeContext.stroke();
-
-          // Draw arrow
-          mergeContext.beginPath();
-          mergeContext.moveTo(currX, arrowPosY - arrowWidth/2);
-
-          // Move right until meeting arrow head
-          mergeContext.lineTo(currX + arrowLength/2 - arrowheadLength/2, arrowPosY - arrowWidth/2);
-
-          // Draw right arrow head
-          mergeContext.lineTo(currX + arrowLength/2 - arrowheadLength/2, arrowPosY - arrowheadWidth/2);
-          mergeContext.lineTo(currX + arrowLength/2, arrowPosY);
-          mergeContext.lineTo(currX + arrowLength/2 - arrowheadLength/2, arrowPosY + arrowheadWidth/2);
-          mergeContext.lineTo(currX + arrowLength/2 - arrowheadLength/2, arrowPosY + arrowWidth/2);
-
-          // Go back to the left until meeting left arrow head
-          mergeContext.lineTo(currX - arrowLength/2 + arrowheadLength/2, arrowPosY + arrowWidth/2);
-
-          // Draw left arrow head
-          mergeContext.lineTo(currX - arrowLength/2 + arrowheadLength/2, arrowPosY + arrowheadWidth/2);
-          mergeContext.lineTo(currX - arrowLength/2, arrowPosY);
-          mergeContext.lineTo(currX - arrowLength/2 + arrowheadLength/2, arrowPosY  - arrowheadWidth/2);
-          mergeContext.lineTo(currX - arrowLength/2 + arrowheadLength/2, arrowPosY);
-
-          mergeContext.lineTo(currX - arrowLength/2 + arrowheadLength/2, arrowPosY - arrowWidth/2);
-          mergeContext.lineTo(currX, arrowPosY - arrowWidth/2);
-
-          mergeContext.closePath();
-
-          mergeContext.fillStyle = "#444444";
-          mergeContext.fill();
-      }
-      requestAnimationFrame(drawLoop);
-  }
-}
-
-// After the document loads, play the videos
-function ondocumentready() {
-  [...document.querySelectorAll('video.video-compare')].forEach(element => {
-    // Add listener to onplay
-    function loadeddata () {
-      const canvas = document.createElement("canvas");
-      element.parentNode.insertBefore(canvas, element.nextSibling);
-      element.height = 0;
-      element.style.position = "absolute";
-      canvas.style.aspectRatio = `${element.videoWidth/2}/${element.videoHeight}`;
-      canvas.width = element.videoWidth/2;
-      canvas.height = element.videoHeight;
-      canvas.classList.add("video-compare");
-      element.play();
-      playMergeVid(element, canvas);
-    }
-    if (element.readyState > 3) {
-      loadeddata();
-    } else {
-      element.addEventListener("loadeddata", loadeddata);
-    }
-  });
-
-  [...document.querySelectorAll('input[data-control-video]')].forEach(element => {
-    const video = document.getElementById(element.getAttribute("data-control-video"));
-    const sliderImagesRoot = document.getElementById(element.getAttribute("data-control-slider-images"));
-    element.addEventListener("input", function() { 
-      const value = Math.min(100, Math.max(0, element.value));
-      const slice = video.duration * value / 100;
-      video.currentTime = ""+slice;
-      // Apply color to active borders
-      if (sliderImagesRoot) {
-        const el1 = Math.min(Math.floor(value / 100 * (sliderImagesRoot.children.length-1)), sliderImagesRoot.children.length-2);
-        const offset = (sliderImagesRoot.children.length-1)*value/100 - el1;
-        for (var i = 0; i < sliderImagesRoot.children.length; i++) {
-          sliderImagesRoot.children[i].style.setProperty("--active-weight", "0%");
-          if (i === el1) {
-            sliderImagesRoot.children[i].style.setProperty("--active-weight", `${100*(1-offset)}%`);
-          }
-          if (i === el1+1) {
-            sliderImagesRoot.children[i].style.setProperty("--active-weight", `${100*offset}%`);
-          }
-        }
+    canvas.addEventListener('pointerdown', event => {
+      canvas.setPointerCapture(event.pointerId);
+      setPosition(event.offsetX / canvas.clientWidth);
+    });
+    canvas.addEventListener('pointermove', event => {
+      if (event.buttons || event.pointerType === 'mouse') {
+        const rect = canvas.getBoundingClientRect();
+        setPosition((event.clientX - rect.left) / rect.width);
       }
     });
+    canvas.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        setPosition(position + (event.key === 'ArrowRight' ? .05 : -.05));
+      }
+    });
+  }
 
+  video.addEventListener('loadeddata', ready);
+  video.addEventListener('error', showError);
+  sources.forEach(source => source.addEventListener('error', showError));
+  video.addEventListener('play', () => {
+    cancelAnimationFrame(frameRequest);
+    animate();
+  });
+  video.addEventListener('pause', () => cancelAnimationFrame(frameRequest));
+
+  wrapper._comparisonEnter = () => {
+    if (!started) {
+      sources.forEach(source => { source.src = source.dataset.src; });
+      video.load();
+      started = true;
+    }
+    if (video.readyState >= 2 && !document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.play().catch(() => {});
+    }
+  };
+  wrapper._comparisonLeave = () => video.pause();
+  observer.observe(wrapper);
+}
+
+function onDocumentReady() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const wrapper = entry.target;
+      wrapper._comparisonVisible = entry.isIntersecting;
+      (entry.isIntersecting ? wrapper._comparisonEnter : wrapper._comparisonLeave)();
+    });
+  }, { rootMargin: '350px 0px', threshold: 0 });
+  document.querySelectorAll('#videos_compare video.video-compare').forEach(video => setupComparison(video, observer));
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) document.querySelectorAll('#videos_compare video.video-compare').forEach(video => video.pause());
   });
 }
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', ondocumentready);
+  document.addEventListener('DOMContentLoaded', onDocumentReady);
 } else {
-  ondocumentready();
+  onDocumentReady();
 }
