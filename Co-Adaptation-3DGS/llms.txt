@@ -1,0 +1,10 @@
+# Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting
+
+> Studies color artifacts caused by co-adapted Gaussians in sparse-view 3DGS, introduces a Co-Adaptation Score, and evaluates Gaussian dropout and opacity noise to improve novel-view rendering.
+
+## Paper and project
+
+- [Research summary](https://chenkangjie1123.github.io/Co-Adaptation-3DGS/index.md): Author-written abstract, authors, venue, and source links.
+- [Project page](https://chenkangjie1123.github.io/Co-Adaptation-3DGS/): Original figures, results, and BibTeX.
+- [arXiv paper](https://arxiv.org/abs/2508.12720): Full research paper.
+- [Code](https://github.com/chenkangjie1123/Co-Adaptation-of-3DGS/): Project repository.

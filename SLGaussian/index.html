@@ -2,10 +2,101 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="SLGaussian: Fast Language Gaussian Splatting in Sparse Views">
+  <meta name="description" content="Builds 3D semantic fields from two RGB views without per-scene optimization and supports fast open-vocabulary 3D object querying and segmentation.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SLGaussian: Fast Language Gaussian Splatting in Sparse Views</title>
+    <!-- discovery metadata start -->
+    <link rel="canonical" href="https://chenkangjie1123.github.io/SLGaussian/">
+    <link rel="alternate" type="text/markdown" href="./index.md">
+    <link rel="describedby" type="text/plain" href="./llms.txt">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="citation_title" content="SLGaussian: Fast Language Gaussian Splatting in Sparse Views">
+    <meta name="citation_author" content="Kangjie Chen">
+    <meta name="citation_author" content="BingQuan Dai">
+    <meta name="citation_author" content="Minghan Qin">
+    <meta name="citation_author" content="Dongbin Zhang">
+    <meta name="citation_author" content="Peihao Li">
+    <meta name="citation_author" content="Yingshuang Zou">
+    <meta name="citation_author" content="Haoqian Wang">
+    <meta name="citation_publication_date" content="2024/12/11">
+    <meta name="citation_conference_title" content="ACM Multimedia 2025">
+    <meta name="citation_doi" content="10.48550/arXiv.2412.08331">
+    <meta name="citation_abstract_html_url" content="https://chenkangjie1123.github.io/SLGaussian/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SLGaussian: Fast Language Gaussian Splatting in Sparse Views">
+    <meta property="og:description" content="Builds 3D semantic fields from two RGB views without per-scene optimization and supports fast open-vocabulary 3D object querying and segmentation.">
+    <meta property="og:url" content="https://chenkangjie1123.github.io/SLGaussian/">
+    <meta property="og:image" content="https://chenkangjie1123.github.io/SLGaussian/static/images/teaser.png">
+    <meta property="og:image:alt" content="SLGaussian: Fast Language Gaussian Splatting in Sparse Views">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SLGaussian: Fast Language Gaussian Splatting in Sparse Views">
+    <meta name="twitter:description" content="Builds 3D semantic fields from two RGB views without per-scene optimization and supports fast open-vocabulary 3D object querying and segmentation.">
+    <meta name="twitter:image" content="https://chenkangjie1123.github.io/SLGaussian/static/images/teaser.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "SLGaussian: Fast Language Gaussian Splatting in Sparse Views",
+      "abstract": "3D semantic field learning is crucial for applications like autonomous navigation, AR/VR, and robotics, where accurate comprehension of 3D scenes from limited viewpoints is essential. Existing methods struggle under sparse view conditions, relying on inefficient per-scene multi-view optimizations, which are impractical for many real-world tasks. To address this, we propose SLGaussian, a feed-forward method for constructing 3D semantic fields from sparse viewpoints, allowing direct inference of 3DGS-based scenes. By ensuring consistent SAM segmentations through video tracking and using low-dimensional indexing for high-dimensional CLIP features, SLGaussian efficiently embeds language information in 3D space, offering a robust solution for accurate 3D scene understanding under sparse view conditions. In experiments on two-view sparse 3D object querying and segmentation in the LERF and 3D-OVS datasets, SLGaussian outperforms existing methods in chosen IoU, Localization Accuracy, and mIoU. Moreover, our model achieves scene inference in under 30 seconds and open-vocabulary querying in just 0.011 seconds per query.",
+      "description": "Builds 3D semantic fields from two RGB views without per-scene optimization and supports fast open-vocabulary 3D object querying and segmentation.",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Kangjie Chen"
+        },
+        {
+          "@type": "Person",
+          "name": "BingQuan Dai"
+        },
+        {
+          "@type": "Person",
+          "name": "Minghan Qin"
+        },
+        {
+          "@type": "Person",
+          "name": "Dongbin Zhang"
+        },
+        {
+          "@type": "Person",
+          "name": "Peihao Li"
+        },
+        {
+          "@type": "Person",
+          "name": "Yingshuang Zou"
+        },
+        {
+          "@type": "Person",
+          "name": "Haoqian Wang"
+        }
+      ],
+      "datePublished": "2024-12-11",
+      "inLanguage": "en",
+      "url": "https://chenkangjie1123.github.io/SLGaussian/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://chenkangjie1123.github.io/SLGaussian/"
+      },
+      "sameAs": [
+        "https://arxiv.org/abs/2412.08331",
+        "https://doi.org/10.48550/arXiv.2412.08331"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "arXiv",
+        "value": "2412.08331"
+      },
+      "image": "https://chenkangjie1123.github.io/SLGaussian/static/images/teaser.png",
+      "keywords": [
+        "language Gaussian splatting",
+        "sparse views",
+        "3D semantic field",
+        "open-vocabulary 3D segmentation",
+        "3D object localization"
+      ],
+      "isAccessibleForFree": true
+    }
+    </script>
+    <!-- discovery metadata end -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -137,8 +228,14 @@
             With just two RGB views, our method infers 3D semantic fields in under 30 seconds without per-scene optimization. On LERF and 3D-OVS datasets (image resolution 416 × 576), query time is 0.011 seconds/query, outperforming existing methods in both speed and IoU metrics.
           </p>
         </div>
+        <figure class="concept-visual">
+          <video autoplay loop muted playsinline preload="metadata" poster="./static/images/slgaussian-explained.png" aria-label="Animation showing two RGB views becoming a queryable language Gaussian scene">
+            <source src="./static/images/slgaussian-explained.mp4" type="video/mp4">
+          </video>
+          <figcaption><a href="./static/images/slgaussian-explained.gif" download>GIF</a><a href="./static/images/slgaussian-explained.mp4" download>MP4</a></figcaption>
+        </figure>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/iIWhK9_2kgA?si=UcbBTCqy2yGf0hhd" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+          <iframe src="https://www.youtube.com/embed/iIWhK9_2kgA?si=UcbBTCqy2yGf0hhd" title="SLGaussian paper video" loading="lazy" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
           </iframe>
         </div>
       </div>
@@ -172,7 +269,7 @@
       <div class="column is-full-width">
         
         <div class="hero-body">
-          <img src="./static/images/teaser.png"/>
+          <img src="./static/images/teaser.png" alt="SLGaussian method overview" loading="lazy" decoding="async"/>
         </div>
         <div class="content has-text-justified">
           <p>
@@ -187,23 +284,23 @@
 
           <!-- Visual Effects. -->
           <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/1.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/1.mp4"
                     type="video/mp4">
           </video></div>
           <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/6.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/6.mp4"
                     type="video/mp4">
           </video></div>
           </div>
@@ -213,23 +310,23 @@
 
       <!-- Visual Effects. -->
       <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/2.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/2.mp4"
                     type="video/mp4">
           </video></div>
              <div class="column">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/4.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/4.mp4"
                     type="video/mp4">
           </video></div></div>
         </div>
@@ -238,41 +335,41 @@
         <p>Using our model pre-trained on the RealEstate10K dataset, we conducted inference on the LERF dataset scenes, using only two sparse-view RGB images — the first and last frames — as input.</p>
 
         <div class="content has-text-centered">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/11.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/11.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="content has-text-centered">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/22.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/22.mp4"
                     type="video/mp4">
           </video>
     </div>
           <div class="content has-text-centered">
-          <video id="replay-video"
+          <video class="result-video"
                   controls
                   muted
-                  preload
+                  preload="none"
                   playsinline
-                  width="100%"  autoplay loop>
-            <source src="./static/videos/33.mp4"
+                  width="100%" loop>
+            <source data-src="./static/videos/33.mp4"
                     type="video/mp4">
           </video>
         </div>
         <h6 class="title is-4">Visual comparison on LERF and 3D-OVS datasets.</h6>
         <div class="hero-body">
-          <img src="./static/images/comparison.png"/>
+          <img src="./static/images/comparison.png" alt="Visual comparison on LERF and 3D-OVS datasets" loading="lazy" decoding="async"/>
         </div>
         <div class="content has-text-justified">
           <p>
@@ -320,6 +417,8 @@
     </div>
   </div>
 </footer>
+
+<script src="./static/js/media.js"></script>
 
 </body>
 </html>
