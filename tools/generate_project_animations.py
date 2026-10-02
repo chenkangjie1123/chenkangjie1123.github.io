@@ -18,21 +18,22 @@ W, H = 960 * SCALE, 540 * SCALE
 EXPORT_SIZE = (1920, 1080)
 FPS = 15
 FRAMES = 72
-BG = (9, 18, 39)
-WHITE = (238, 245, 255)
-MUTED = (153, 174, 205)
-BLUE = (100, 171, 255)
-CYAN = (91, 223, 222)
-FONT_PATH = "/System/Library/Fonts/Supplemental/Arial.ttf"
-BOLD_PATH = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+BG = (10, 18, 34)
+WHITE = (242, 246, 251)
+MUTED = (169, 184, 207)
+CYAN = (105, 213, 211)
+FONT_PATH = "/System/Library/Fonts/SFNS.ttf"
 
 
-def font(size, bold=False):
-    paths = ([BOLD_PATH, "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"] if bold
-             else [FONT_PATH, "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"])
+@lru_cache(maxsize=None)
+def font(size, weight="regular"):
+    paths = [FONT_PATH, "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
     for path in paths:
         if Path(path).exists():
-            return ImageFont.truetype(path, size * SCALE)
+            face = ImageFont.truetype(path, size * SCALE)
+            if path == FONT_PATH:
+                face.set_variation_by_name({"regular": "Regular", "medium": "Medium", "semibold": "Semibold"}[weight])
+            return face
     return ImageFont.load_default(size)
 
 
@@ -67,20 +68,21 @@ class ScaledDraw:
 def base():
     im = Image.new("RGBA", (W, H), BG)
     d = ScaledDraw(im)
-    d.rounded_rectangle((20, 18, 940, 522), radius=26, outline=(64, 91, 139, 110), width=2)
-    d.text((48, 43), "CO-ADAPTATION OF 3DGS", font=font(16, True), fill=CYAN)
-    d.text((48, 73), "How co-adaptation creates color artifacts", font=font(30, True), fill=WHITE)
+    d.text((48, 39), "CO-ADAPTATION OF 3DGS", font=font(13, "semibold"), fill=CYAN)
+    d.text((48, 70), "How co-adaptation creates color artifacts", font=font(30, "semibold"), fill=WHITE)
+    d.line((48, 126, 912, 126), fill=(47, 66, 94), width=1)
     return im
 
 
-def pill(d, box, label, color=CYAN):
-    d.rounded_rectangle(box, radius=15, fill=(32, 49, 77), outline=(82, 114, 158), width=1)
-    d.text((box[0]+13, box[1]+7), label, font=font(15, True), fill=color)
+def centered_text(d, box, y, label, size, weight="medium", color=WHITE):
+    """Keep component labels centered even when the font metrics change."""
+    d.text(((box[0] + box[2]) / 2, y), label, font=font(size, weight), fill=color, anchor="mt")
 
 
-def panel(d, box, title):
-    d.rounded_rectangle(box, radius=18, fill=(18, 33, 61), outline=(70, 96, 137), width=2)
-    d.text((box[0]+18, box[1]+15), title, font=font(17, True), fill=MUTED)
+def panel(d, box, title, caption, caption_color):
+    d.rounded_rectangle(box, radius=17, fill=(20, 32, 53), outline=(54, 76, 109), width=1)
+    centered_text(d, box, 185, title, 16, "semibold", MUTED)
+    centered_text(d, box, 410, caption, 14, "medium", caption_color)
 
 
 def gaussian_field(im, centers, bounds):
@@ -88,11 +90,10 @@ def gaussian_field(im, centers, bounds):
     h, w = y1-y0, x1-x0
     yy, xx = np.mgrid[0:h, 0:w]
     field = np.zeros((h, w, 3), dtype=np.float32)
-    for (cx, cy), channel in zip(centers, range(3)):
-        r = ((xx - (cx*SCALE-x0))/(44*SCALE)) ** 2 + ((yy - (cy*SCALE-y0))/(66*SCALE)) ** 2
-        field[:, :, channel] += 246 * np.exp(-r * 1.05)
-    opacity = np.max(field, axis=2)
-    field += np.stack([opacity*.07, opacity*.09, opacity*.13], axis=2)
+    colors = ((239, 91, 107), (74, 211, 160), (83, 139, 238))
+    for (cx, cy), color in zip(centers, colors):
+        r = ((xx - (cx*SCALE-x0))/(31*SCALE)) ** 2 + ((yy - (cy*SCALE-y0))/(50*SCALE)) ** 2
+        field += np.exp(-r * 1.05)[:, :, None] * np.asarray(color, dtype=np.float32)
     scene = np.array(im.crop((x0, y0, x1, y1)).convert("RGB"), dtype=np.float32)
     scene = np.clip(scene + field, 0, 255).astype("uint8")
     im.paste(Image.fromarray(scene), (x0, y0))
@@ -102,39 +103,35 @@ def coadapt_frame(index):
     phase = index / FRAMES
     # Pause at both important viewpoints so the mechanism is readable as a GIF.
     orbit = (1 - math.cos(2 * math.pi * phase)) / 2
-    shift = 55 * (orbit ** 1.15)
+    shift = 51 * (orbit ** 1.15)
     im = base().copy()
     d = ScaledDraw(im)
-    panel(d, (49, 143, 259, 422), "TRAINING VIEW")
-    panel(d, (701, 143, 911, 422), "NOVEL VIEW")
-    d.rounded_rectangle((342, 153, 618, 400), radius=18, fill=(13, 27, 51), outline=(66, 94, 135), width=2)
+    panel(d, (48, 163, 270, 453), "TRAINING VIEW", "White appearance in input", CYAN)
+    panel(d, (690, 163, 912, 453), "NOVEL VIEW", "Color error in new view", (246, 160, 173))
+    d.rounded_rectangle((332, 163, 628, 453), radius=17, fill=(16, 27, 47), outline=(54, 76, 109), width=1)
     # An overlapped white projection is held on the left; the actual points separate as the camera rotates.
-    d.rounded_rectangle((77, 211, 231, 366), radius=16, fill=(239, 244, 247), outline=(190, 211, 229), width=3)
-    d.ellipse((119, 250, 190, 322), fill=(255, 255, 255), outline=(220, 227, 233), width=2)
-    d.rounded_rectangle((729, 211, 883, 366), radius=16, fill=(235, 239, 242), outline=(188, 210, 229), width=3)
+    d.rounded_rectangle((74, 226, 244, 382), radius=13, fill=(229, 236, 242))
+    d.ellipse((124, 269, 194, 339), fill=(255, 255, 255), outline=(201, 213, 223), width=1)
+    d.rounded_rectangle((716, 226, 886, 382), radius=13, fill=(229, 236, 242))
     # RGB splats in the new projection become offset as the orbit grows.
-    for x, rgb in ((806 - shift*.78, (246, 83, 104)), (806, (89, 218, 161)), (806 + shift*.78, (78, 143, 255))):
+    for x, rgb in ((801 - shift*.82, (239, 91, 107)), (801, (74, 211, 160)), (801 + shift*.82, (83, 139, 238))):
         color = tuple(round(240 * (1 - orbit) + component * orbit) for component in rgb)
-        ScaledDraw(im).ellipse((x-30, 256, x+30, 316), fill=color)
+        ScaledDraw(im).ellipse((x-29, 275, x+29, 333), fill=color)
     layer = Image.new("RGBA", (W, H))
-    ScaledDraw(layer).ellipse((776, 256, 836, 316), fill=(255, 255, 255, int(255*(1-orbit))))
+    ScaledDraw(layer).ellipse((772, 275, 830, 333), fill=(255, 255, 255, int(255*(1-orbit))))
     im = Image.alpha_composite(im, layer)
     d = ScaledDraw(im)
-    centers = [(480-shift, 281), (480, 281), (480+shift, 281)]
-    gaussian_field(im, centers, (360, 183, 600, 382))
+    centers = [(480-shift, 303), (480, 303), (480+shift, 303)]
+    gaussian_field(im, centers, (350, 213, 610, 390))
     d = ScaledDraw(im)
-    for (cx, cy), channel_color in zip(centers, ((255, 105, 122), (115, 239, 174), (110, 165, 255))):
+    for (cx, cy), channel_color in zip(centers, ((239, 91, 107), (74, 211, 160), (83, 139, 238))):
         color = tuple(round(246 * (1 - orbit) + component * orbit) for component in channel_color)
-        d.ellipse((cx-4, cy-4, cx+4, cy+4), fill=color)
-    d.line((263, 283, 320, 283), fill=(125, 171, 231), width=6)
-    d.polygon([(334, 283), (317, 272), (317, 294)], fill=(125, 171, 231))
-    d.line((630, 283, 687, 283), fill=(125, 171, 231), width=6)
-    d.polygon([(701, 283), (684, 272), (684, 294)], fill=(125, 171, 231))
-    d.text((369, 412), "R", font=font(18, True), fill=(255, 105, 122))
-    d.text((474, 412), "G", font=font(18, True), fill=(115, 239, 174))
-    d.text((579, 412), "B", font=font(18, True), fill=(110, 165, 255))
-    pill(d, (49, 459, 289, 493), "White appearance in input")
-    pill(d, (663, 459, 911, 493), "Color error in new view", (255, 161, 170))
+        d.ellipse((cx-3, cy-3, cx+3, cy+3), fill=color)
+    for start, end in ((280, 320), (640, 680)):
+        d.line((start, 303, end-8, 303), fill=(124, 159, 206), width=3)
+        d.polygon([(end, 303), (end-10, 297), (end-10, 309)], fill=(124, 159, 206))
+    for center, label, color in ((410, "R", (239, 91, 107)), (480, "G", (74, 211, 160)), (550, "B", (83, 139, 238))):
+        centered_text(d, (center-18, 0, center+18, 0), 410, label, 17, "semibold", color)
     return im.convert("RGB")
 
 
