@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css?v=3" />
+    <link rel="stylesheet" href="artifact-story.css?v=20261031-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Co-Adaptation of 3DGS: Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting</title>
     <!-- discovery metadata start -->
@@ -188,12 +189,18 @@
     <strong>TL;DR:</strong> This paper introduces the concept of co-adaptation in 3D Gaussian Splatting, analyzes its impact on rendering artifacts, and proposes strategies (Dropout Regularization & Opacity Noise Injection) to reduce it.
     </p>
 
-    <figure class="concept-visual">
-      <video autoplay loop muted playsinline preload="metadata" poster="./assets/coadapt-explained.png?v=3" aria-label="Animation showing RGB Gaussians overlapping as white in a training view and separating into color errors in a novel view">
-        <source src="./assets/coadapt-explained.mp4?v=3" type="video/mp4">
-      </video>
-      <figcaption class="concept-links"><a href="./assets/coadapt-explained.gif?v=3" download="coadapt-explained.gif">GIF</a><a href="./assets/coadapt-explained.mp4?v=3" download="coadapt-explained.mp4">MP4</a></figcaption>
-    </figure>
+    <section class="artifact-story" aria-labelledby="artifact-heading">
+      <h2 id="artifact-heading">How co-adaptation creates color artifacts</h2>
+      <p class="artifact-intro">Start with a close-up of a real rendering, then explore how a change in viewpoint reveals co-adapted colors.</p>
+      <div id="artifact-demo">
+        <p>The interactive demo is loading. <a href="./assets/flower-pair.mp4">View the scene comparison video</a>.</p>
+      </div>
+      <div class="artifact-story-footer">
+        <p id="artifact-caption">Drag the white divider back and forth. Watch the flower-edge color artifacts inside the dashed outline.</p>
+        <button id="artifact-next" type="button" hidden>Next: Why it happens →</button>
+      </div>
+      <p class="artifact-note">Step 1: a zoomed comparison of 3DGS and Gaussian dropout on the same frame. Step 2: an illustrative model with fixed Gaussian positions and colors; only the camera moves.</p>
+    </section>
 
     <section class="abstract">
       <h2>Abstract</h2>
@@ -673,6 +680,8 @@
   year={2025}
 }</code></pre>
     </section>
+    <script src="./artifact-comparison.js?v=20261031-1"></script>
+    <script type="module" src="./artifact-story.js?v=20261031-1"></script>
     <script src="./scripts.js?v=3"></script>
   </body>
 </html>
