@@ -3,7 +3,7 @@ window.CASES = [
     "id": "davis_dance-twirl",
     "title": "A dancer in a crowd",
     "category": "People",
-    "source": "DAVIS · earlier checkpoint",
+    "source": "DAVIS",
     "video": "assets/videos/davis_dance-twirl.mp4",
     "poster": "assets/videos/davis_dance-twirl.webp",
     "width": 1280,
@@ -25,7 +25,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A car at a busy roundabout",
     "category": "Driving",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_rollerblade",
@@ -36,7 +36,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A skater against a mural",
     "category": "People",
-    "source": "DAVIS2017 · paper model · training-set example",
+    "source": "DAVIS2017",
     "video": "assets/videos/davis_rollerblade.mp4",
     "poster": "assets/videos/davis_rollerblade.webp",
     "bytes": 797238,
@@ -51,7 +51,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Clearing traffic at an intersection",
     "category": "Driving",
-    "source": "KITTI-360 · paper model · training-set example",
+    "source": "KITTI-360",
     "video": "assets/videos/kitti360_kitti_variant_0012.mp4",
     "poster": "assets/videos/kitti360_kitti_variant_0012.webp",
     "bytes": 555585,
@@ -66,7 +66,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Cars along a narrow street",
     "category": "Driving",
-    "source": "KITTI-360 · paper model · training-set example",
+    "source": "KITTI-360",
     "video": "assets/videos/kitti360_kitti_variant_0014.mp4",
     "poster": "assets/videos/kitti360_kitti_variant_0014.webp",
     "bytes": 574286,
@@ -81,7 +81,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A residential street without parked cars",
     "category": "Driving",
-    "source": "KITTI-360 · paper model · training-set example",
+    "source": "KITTI-360",
     "video": "assets/videos/kitti360_kitti_variant_0027.mp4",
     "poster": "assets/videos/kitti360_kitti_variant_0027.webp",
     "bytes": 944906,
@@ -96,7 +96,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A flock in the courtyard",
     "category": "Wildlife",
-    "source": "MOSE · paper model · training-set example",
+    "source": "MOSE",
     "video": "assets/videos/mose_1e75004d.mp4",
     "poster": "assets/videos/mose_1e75004d.webp",
     "bytes": 2314802,
@@ -111,7 +111,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Goldfish among aquatic plants",
     "category": "Water",
-    "source": "MOSE · paper model · training-set example",
+    "source": "MOSE",
     "video": "assets/videos/mose_e3dcd186.mp4",
     "poster": "assets/videos/mose_e3dcd186.webp",
     "bytes": 2454490,
@@ -126,7 +126,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Selective removal in a fish tank",
     "category": "Water",
-    "source": "MOSE · paper model · training-set example",
+    "source": "MOSE",
     "video": "assets/videos/mose_001ca3cb.mp4",
     "poster": "assets/videos/mose_001ca3cb.webp",
     "bytes": 565334,
@@ -141,7 +141,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "One tiger among its companions",
     "category": "Wildlife",
-    "source": "MOSE · paper model · training-set example",
+    "source": "MOSE",
     "video": "assets/videos/mose_b6f03bd9.mp4",
     "poster": "assets/videos/mose_b6f03bd9.webp",
     "bytes": 2210213,
@@ -156,7 +156,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A bus behind roadside trees",
     "category": "Driving",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_bus.mp4",
     "poster": "assets/videos/davis_bus.webp",
     "bytes": 1222377,
@@ -171,7 +171,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A breakdancer by a stone wall",
     "category": "People",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_breakdance-flare.mp4",
     "poster": "assets/videos/davis_breakdance-flare.webp",
     "bytes": 1392316,
@@ -186,7 +186,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Clearing all road traffic",
     "category": "Driving",
-    "source": "MOSE · paper model · all-vehicle masks · training-set example",
+    "source": "MOSE",
     "video": "assets/videos/mose_b0240233_allvehicles.mp4",
     "poster": "assets/videos/mose_b0240233_allvehicles.webp",
     "bytes": 3619130,
@@ -201,7 +201,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A duck taking flight",
     "category": "Wildlife",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_mallard-fly.mp4",
     "poster": "assets/videos/davis_mallard-fly.webp",
     "bytes": 2005151,
@@ -216,7 +216,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Hockey practice by the goal",
     "category": "People",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_hockey.mp4",
     "poster": "assets/videos/davis_hockey.webp",
     "bytes": 836789,
@@ -231,7 +231,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A windsurfer on the sea",
     "category": "Water",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_surf.mp4",
     "poster": "assets/videos/davis_surf.webp",
     "bytes": 1092079,
@@ -246,7 +246,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Pedestrians and a van at a crossing",
     "category": "Driving",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_crossing.mp4",
     "poster": "assets/videos/davis_crossing.webp",
     "bytes": 803787,
@@ -261,7 +261,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A snowboarder on the slopes",
     "category": "People",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_snowboard.mp4",
     "poster": "assets/videos/davis_snowboard.webp",
     "bytes": 2545241,
@@ -276,7 +276,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A horse clearing the hurdles",
     "category": "Wildlife",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_horsejump-low.mp4",
     "poster": "assets/videos/davis_horsejump-low.webp",
     "bytes": 1819678,
@@ -291,7 +291,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A group beside a garden wall",
     "category": "People",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_schoolgirls.mp4",
     "poster": "assets/videos/davis_schoolgirls.webp",
     "bytes": 682386,
@@ -306,7 +306,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Motorcyclists on an alpine road",
     "category": "Driving",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_motorbike.mp4",
     "poster": "assets/videos/davis_motorbike.webp",
     "bytes": 933912,
@@ -321,7 +321,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A ball behind the trees",
     "category": "Objects",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_soccerball.mp4",
     "poster": "assets/videos/davis_soccerball.webp",
     "bytes": 1317066,
@@ -336,7 +336,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A stroller past shop windows",
     "category": "People",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_stroller.mp4",
     "poster": "assets/videos/davis_stroller.webp",
     "bytes": 1689303,
@@ -351,7 +351,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A scooter among city traffic",
     "category": "Driving",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_scooter-gray.mp4",
     "poster": "assets/videos/davis_scooter-gray.webp",
     "bytes": 1280608,
@@ -366,7 +366,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Football practice at sunset",
     "category": "People",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_kid-football.mp4",
     "poster": "assets/videos/davis_kid-football.webp",
     "bytes": 905130,
@@ -381,7 +381,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A skater across the ramps",
     "category": "People",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_stunt.mp4",
     "poster": "assets/videos/davis_stunt.webp",
     "bytes": 879980,
@@ -396,7 +396,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A tractor behind the hurdles",
     "category": "Driving",
-    "source": "DAVIS · paper model · training-set example",
+    "source": "DAVIS",
     "video": "assets/videos/davis_tractor-sand.mp4",
     "poster": "assets/videos/davis_tractor-sand.webp",
     "bytes": 900662,
@@ -414,7 +414,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A crowd in front of a mural",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0088",
@@ -428,7 +428,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "People and shadows on the dunes",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0064",
@@ -442,13 +442,13 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Children on a climbing frame",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "davis_car-turn",
     "title": "An alpine road",
     "category": "Driving",
-    "source": "DAVIS · earlier checkpoint",
+    "source": "DAVIS",
     "video": "assets/videos/davis_car-turn.mp4",
     "poster": "assets/videos/davis_car-turn.webp",
     "width": 1280,
@@ -470,7 +470,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "People around a dining table",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "davis_camel",
@@ -484,7 +484,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "One camel, not the other",
     "category": "Wildlife",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "prove-h_H_0066",
@@ -498,7 +498,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A walker, with the dogs preserved",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "davis_parkour",
@@ -512,7 +512,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Parkour across the city",
     "category": "People",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "prove-h_H_0072",
@@ -526,7 +526,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A boat beneath the falls",
     "category": "Water",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-m_M_0054",
@@ -554,7 +554,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Fish in an aquarium",
     "category": "Wildlife",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "prove-h_H_0017",
@@ -568,7 +568,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A family on the sofa",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "davis_loading",
@@ -582,7 +582,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "People in a busy store",
     "category": "People",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "prove-h_H_0097",
@@ -596,7 +596,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A group crossing the snow",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "davis_soapbox",
@@ -610,7 +610,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A soapbox race",
     "category": "People",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "prove-h_H_0075",
@@ -624,7 +624,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A person inside a floating frame",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "kitti360_kitti_0010_0000003035_w0",
@@ -658,7 +658,7 @@ window.CASES = [
     "id": "davis_horsejump-high",
     "title": "Horse and rider",
     "category": "Wildlife",
-    "source": "DAVIS · earlier checkpoint",
+    "source": "DAVIS",
     "video": "assets/videos/davis_horsejump-high.mp4",
     "poster": "assets/videos/davis_horsejump-high.webp",
     "width": 1280,
@@ -896,7 +896,7 @@ window.CASES = [
     "id": "davis_goat",
     "title": "Wildlife on rocky terrain",
     "category": "Wildlife",
-    "source": "DAVIS · earlier checkpoint",
+    "source": "DAVIS",
     "video": "assets/videos/davis_goat.mp4",
     "poster": "assets/videos/davis_goat.webp",
     "width": 1280,
@@ -910,7 +910,7 @@ window.CASES = [
     "id": "davis_bmx-trees",
     "title": "A cyclist in motion",
     "category": "People",
-    "source": "DAVIS · earlier checkpoint",
+    "source": "DAVIS",
     "video": "assets/videos/davis_bmx-trees.mp4",
     "poster": "assets/videos/davis_bmx-trees.webp",
     "width": 1280,
@@ -924,7 +924,7 @@ window.CASES = [
     "id": "davis_hike",
     "title": "A hiker in the mountains",
     "category": "People",
-    "source": "DAVIS · earlier checkpoint",
+    "source": "DAVIS",
     "video": "assets/videos/davis_hike.mp4",
     "poster": "assets/videos/davis_hike.webp",
     "width": 1280,
@@ -988,7 +988,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A cyclist inside a shop",
     "category": "People",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_blackswan",
@@ -1002,7 +1002,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A swan on rippling water",
     "category": "Wildlife",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_dogs-jump",
@@ -1016,7 +1016,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Dogs and their trainer",
     "category": "Wildlife",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_drift-straight",
@@ -1030,7 +1030,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A drifting car",
     "category": "Driving",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_judo",
@@ -1044,7 +1044,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Athletes on the mat",
     "category": "People",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_lab-coat",
@@ -1058,7 +1058,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "People crossing a lawn",
     "category": "People",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_libby",
@@ -1072,7 +1072,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A dog behind a fence",
     "category": "Wildlife",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_pigs",
@@ -1086,7 +1086,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Animals moving together",
     "category": "Wildlife",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "davis_scooter-black",
@@ -1100,7 +1100,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A scooter in city traffic",
     "category": "Driving",
-    "source": "DAVIS · paper model"
+    "source": "DAVIS"
   },
   {
     "id": "prove-h_H_0003",
@@ -1114,7 +1114,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Players around the tables",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0006",
@@ -1128,7 +1128,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "People among the fountains",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0009",
@@ -1142,7 +1142,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A runner on wet sand",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0011",
@@ -1156,7 +1156,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Swans beside the waterfront",
     "category": "Wildlife",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0023",
@@ -1170,7 +1170,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Food on a barbecue grill",
     "category": "Objects",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0032",
@@ -1184,7 +1184,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A dancer by the staircase",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0037",
@@ -1198,7 +1198,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A dancer in motion",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0041",
@@ -1212,7 +1212,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "A person in a flower meadow",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0050",
@@ -1226,7 +1226,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Players, with the ball preserved",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0054",
@@ -1240,7 +1240,7 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "Cats on a wooden floor",
     "category": "Wildlife",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   },
   {
     "id": "prove-h_H_0098",
@@ -1254,6 +1254,6 @@ window.CASES = [
     "checkpoint": "8940622499dc6caa977c0cc5c4678ece3340c798825e615ca75258c57da2609e",
     "title": "One skater in a busy skatepark",
     "category": "People",
-    "source": "PROVE-H · paper model"
+    "source": "PROVE-H"
   }
 ];
