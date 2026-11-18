@@ -30,3 +30,5 @@
 .resources .button{height:44px;padding:0 20px;gap:8px;justify-content:center;line-height:20px;white-space:nowrap}
 .button-label{display:block;font-size:13px;line-height:20px;font-weight:400}
 .button-icon{display:flex;align-items:center;justify-content:center;flex:0 0 18px;width:18px;height:20px;font-size:16px;line-height:1}
+.brand{display:inline-flex;align-items:center;gap:9px}
+.brand-logo{display:block;flex:none;width:28px;height:28px}
