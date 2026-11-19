@@ -3,7 +3,7 @@
 <header><a class="wordmark" href="./"><img src="assets/logo.svg" width="30" height="30" alt=""> H3Remover</a>
 <h1>Reinforcing Video Object Removal<br> without Paired Data</h1>
 <p class="lede">Remove selected objects, their shadows and reflections. Keep the rest of the scene.</p>
-<nav aria-label="Project resources"><a class="primary" href="https://github.com/chenkangjie1123/H3Remover#gradio-demo">Run the Gradio demo</a><a href="https://arxiv.org/abs/2611.24633">arXiv</a><a href="https://github.com/chenkangjie1123/H3Remover">Code</a><a href="https://huggingface.co/chenkangjie1123/H3Remover">Model weights</a></nav></header>
+<nav aria-label="Project resources"><a class="primary" href="https://github.com/chenkangjie1123/H3Remover#gradio-demo">Run the Gradio demo</a><a href="https://arxiv.org/abs/2611.24633">arXiv</a><a href="https://github.com/chenkangjie1123/H3Remover">Code</a><a href="https://huggingface.co/chenkangjie1123/H3Remover">Model weights</a><a href="#citation">Cite</a></nav></header>
 <section id="demo" aria-labelledby="compare"><div class="heading"><h2 id="compare">See the difference</h2><div class="choices" aria-label="Choose a comparison"><button type="button" aria-pressed="true">Street traffic</button><button type="button" aria-pressed="false">Lifting a bicycle</button></div></div>
 <figure><div class="labels"><span>Input · selected objects</span><span>H3Remover</span></div>
 <video id="comparison" controls autoplay muted loop playsinline preload="auto" width="896" height="252" poster="assets/loops-v1/mose_b0240233_allvehicles.jpg" src="assets/loops-v1/mose_b0240233_allvehicles.mp4" aria-label="Synchronized input and removal result"></video>
@@ -19,8 +19,28 @@
 </section>
 <dialog id="case-viewer" aria-labelledby="case-title"><div class="heading"><h2 id="case-title"></h2><button type="button" id="case-close">Close</button></div>
 <video id="case-movie" controls muted loop playsinline preload="none"></video><p id="case-info"></p></dialog>
+<section id="citation" aria-labelledby="citation-title">
+<div class="heading"><h2 id="citation-title">Citation</h2><button type="button" id="copy-bib">Copy BibTeX</button></div>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5"><code id="paper-bib">@misc{chen2026h3removerreinforcingvideoobject,
+  title         = {H3Remover: Reinforcing Video Object Removal without Paired Data},
+  author        = {Kangjie Chen and Xiangyu Li and Jinhao Deng and Dongbin Zhang and
+                   Chaoda Zheng and Shijia Chen and Yuqi Zhang and Choo Sin Wai and
+                   Boyi Sun and Puyi Wang and Yu Zhang and Xianming Liu and Boyang Wang},
+  year          = {2026},
+  eprint        = {2611.24633},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2611.24633}
+}</code></pre>
+<a href="H3Remover.bib" download>Download .bib</a> <span id="copy-status" role="status"></span>
+</section>
 <footer id="paper"><a href="gallery.html#paper">Paper and authors</a><a href="#explore">All examples</a><a href="promo.html">Full demo film</a></footer>
 </main><script>
+document.getElementById('copy-bib').addEventListener('click',async()=>{
+  const code=document.getElementById('paper-bib'),status=document.getElementById('copy-status');
+  try{await navigator.clipboard.writeText(code.textContent);status.textContent='Citation copied.';}
+  catch{const r=document.createRange();r.selectNodeContents(code);const s=window.getSelection();s.removeAllRanges();s.addRange(r);status.textContent='Citation selected. Use your copy command.';}
+});
 const clips=[['mose_b0240233_allvehicles','MOSE · Multiple vehicles crossing a city street.'],['davis_bike-packing','DAVIS · A person lifting a bicycle indoors.']];
 const player=document.querySelector('#comparison'), buttons=[...document.querySelectorAll('.choices button')];
 buttons.forEach((b,i)=>b.onclick=()=>{if(b.getAttribute('aria-pressed')==='true')return;const [id,caption]=clips[i];player.poster='assets/loops-v1/'+id+'.jpg';player.src='assets/loops-v1/'+id+'.mp4';player.play().catch(()=>{});document.querySelector('#caption').textContent=caption;buttons.forEach((n,j)=>n.setAttribute('aria-pressed',i===j?'true':'false'));});
