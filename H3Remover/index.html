@@ -9,6 +9,10 @@
 <video id="comparison" controls autoplay muted loop playsinline preload="auto" width="896" height="252" poster="assets/loops-v1/mose_b0240233_allvehicles.jpg" src="assets/loops-v1/mose_b0240233_allvehicles.mp4" aria-label="Synchronized input and removal result"></video>
 <figcaption><span id="caption">MOSE · Multiple vehicles crossing a city street.</span><a href="#explore">Browse the full gallery</a></figcaption></figure></section>
 <section id="method"><h2>Abstract</h2><p>H3Remover adapts a pretrained video editor using reinforcement learning, without paired object-free training targets. Depth rewards encourage the editor to reveal what lies behind the target and preserve surrounding geometry. Appearance and preference rewards help retain unrelated scene details.</p></section>
+<section id="gradio" aria-labelledby="gradio-title">
+<div class="heading"><h2 id="gradio-title">Try the editor</h2><a href="https://github.com/chenkangjie1123/H3Remover#gradio-demo">Run Gradio locally ↗</a></div>
+<video controls autoplay muted loop playsinline preload="metadata" width="850" height="390" style="display:block;width:100%;max-width:850px;height:auto;margin:auto" poster="assets/gradio-demo-v2.jpg" src="assets/gradio-demo-v2.mp4" aria-label="Gradio walkthrough: load a street clip, inspect its mask, remove the selected vehicles and view the edit"></video>
+</section>
 <section id="explore" aria-labelledby="gallery-title">
 <div class="heading"><h2 id="gallery-title">Full gallery</h2><span id="case-count" role="status"></span></div>
 <p>Previews loop as you scroll. Select a scene for the full-quality video. Left: input with target masks. Right: H3Remover.</p>
