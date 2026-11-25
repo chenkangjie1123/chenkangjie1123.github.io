@@ -1,0 +1,5 @@
+.paper-byline{max-width:72rem;margin:1.2rem auto 1.5rem;text-align:center;color:#243c32;font:500 1.05rem/1.55 system-ui,sans-serif}
+.paper-byline .name-row,.paper-byline .org-row,.paper-byline .byline-note{display:flex;justify-content:center;flex-wrap:wrap;gap:.15rem 1.05rem;margin:.15rem auto;padding:0;max-width:none}
+.paper-byline span{white-space:nowrap}.paper-byline sup{font-size:.66em;line-height:0;vertical-align:super;margin-left:.06em}
+.paper-byline .org-row{margin-top:.65rem;gap:.15rem 1.25rem;font-size:.95rem}.paper-byline .byline-note{font-size:.85rem;font-weight:400;margin-top:.35rem;color:#495e53}
+@media(max-width:700px){.paper-byline{font-size:1rem}.paper-byline .name-row{column-gap:.8rem}}
