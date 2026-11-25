@@ -3,7 +3,7 @@
   const q = s => document.querySelector(s);
   const grid = q('#case-grid'), filters = q('#case-filters');
   const dialog = q('#case-viewer'), movie = q('#case-movie');
-  let opener, resumeHero = false;
+  let opener;
   const toggle = q('#toggle-loops');
   const visible = new Set();
   let paused = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -33,8 +33,6 @@
   refresh();
   function show(c, button) {
     opener = button;
-    resumeHero = !q('#comparison').paused;
-    q('#comparison').pause();
     q('#case-title').textContent = c.title;
     q('#case-info').textContent = c.source + ' · Input + mask (left) / H3Remover (right)';
     movie.setAttribute('aria-label', c.title);
@@ -50,7 +48,6 @@
     movie.removeAttribute('src');
     movie.load();
     refresh();
-    if (resumeHero && !document.hidden) q('#comparison').play().catch(() => {});
     opener?.focus({preventScroll:true});
   });
   function render(category) {
