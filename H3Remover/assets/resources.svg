@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="paper" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 2.5h9l5 5V21H5zM14 2.5v5h5M8 12h8M8 16h6"/></g></symbol>
+<symbol id="github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .8a11.3 11.3 0 0 0-3.57 22.02c.57.1.78-.24.78-.55v-2.13c-3.18.7-3.85-1.36-3.85-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.54-.29-5.21-1.27-5.21-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.13-1.17 3.13-1.17.63 1.59.24 2.76.12 3.05.73.8 1.18 1.82 1.18 3.07 0 4.38-2.68 5.34-5.23 5.62.41.36.78 1.05.78 2.12v3.16c0 .31.2.66.79.55A11.3 11.3 0 0 0 12 .8z"/></symbol>
+<symbol id="weights" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5zM3 12l9 5 9-5M3 17l9 5 9-5"/></g></symbol>
+<symbol id="quote" viewBox="0 0 24 24"><path d="M4 6h6v7l-4 5H3l4-6H4zm10 0h6v7l-4 5h-3l4-6h-3z" fill="currentColor"/></symbol>
+</svg>
